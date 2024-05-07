@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
-
 class Child2 extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +19,7 @@ class Child2 extends Component {
     var temp_data = d3.flatRollup(
       data,
       (d) => d.length,
-      (d) => d.day
+      (d) => d.category
     );
     console.log(temp_data); // Check the format of the data in the conosole
 
@@ -52,14 +51,6 @@ class Child2 extends Component {
       .scaleLinear()
       .domain([0, d3.max(y_data)])
       .range([h, 0]);
-
-    container
-      .selectAll(".y_axis_g")
-      .data([0])
-      .join("g")
-      .attr("class", "y_axis_g")
-      .attr("transform", `translate(${margin.left},0)`)
-      .call(d3.axisLeft(y_scale));
 
     container
       .selectAll("rect")

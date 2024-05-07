@@ -24,13 +24,13 @@ class Child1 extends Component{
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
     // Add X axis
-    var x_data=data.map(item=>item.total_bill)
+    var x_data=data.map(item=>item.x)
     const x_scale = d3.scaleLinear().domain([0,d3.max(x_data)]).range([margin.left, w]);
     container.selectAll(".x_axis_g").data([0]).join('g').attr("class","x_axis_g")
     .attr("transform", `translate(0, ${h})`).call(d3.axisBottom(x_scale));
 
     // Add Y axis
-    var y_data=data.map(item=>item.tip)
+    var y_data=data.map(item=>item.y)
     const y_scale = d3.scaleLinear().domain([0,d3.max(y_data)]).range([h, 0]);
     container.selectAll(".y_axis_g").data([0]).join('g').attr("class",'y_axis_g')
     .attr("transform", `translate(${margin.left},0)`).call(d3.axisLeft(y_scale));
