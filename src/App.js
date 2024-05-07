@@ -8,7 +8,10 @@ import SampleDataset from './SampleDataset.csv';
 class App extends Component{
   constructor(props) {
     super(props);
-    this.state = {data:[]};
+    this.state = {
+      data:[],
+      dropDownValue: 'A'
+    };
   }
   componentDidMount(){
     var self=this
@@ -28,6 +31,16 @@ class App extends Component{
   }
   render() {
     return <div className="parent">
+    <div className="TopBar">
+        <div className="TopSelect">
+          Select Target:
+          <select onChange={(event) => this.setState({ dropDownValue: event.target.value })}>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+          </select>
+        </div>
+      </div>
       <div className="child1"><Child1 data1={this.state.data}></Child1></div>
       <div className="child2"><Child2 data2={this.state.data}></Child2></div>
       </div>;

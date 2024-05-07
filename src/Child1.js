@@ -10,7 +10,8 @@ class Child1 extends Component{
     console.log(this.props.data1);
   }
   componentDidUpdate(){
-    var data=this.props.data1
+    var data=this.props.data1;
+    //var selectedDropdown = this.props.data1.dropDownValue;
 
     //set the dimensions and margins of the graph
     var margin = { top: 10, right: 10, bottom: 30, left: 20 },

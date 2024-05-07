@@ -68,6 +68,20 @@ class Child2 extends Component {
         return h - y_scale(d[1]);
       })
       .attr("fill", "#69b3a2");
+
+    container 
+      .selectAll('.bar-label')
+      .data(temp_data)
+      .enter()
+      .append('text')
+      .attr('class', 'bar-label')
+      .attr("x", function (d) {
+        return x_scale(d[0]);
+      })
+      .attr("y", function (d) {
+        return y_scale(d[1]-5);
+      })
+      .text(d => d[1]);
   }
   render() {
     return (
